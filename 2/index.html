@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hex color change</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <h1 id="color">#E63C44</h1>
+      <button id="change" type="button">Change color</button>
+    </div>
+
+    <script>
+      var btn = document.getElementById("change");
+      var text = document.getElementById("color");
+      var generator = function () {
+        newColour = "#" + ((Math.random() * 0xffffff) << 0).toString(16);
+        console.log(newColour.length);
+        if (newColour.length < 7) {
+          generator();
+        }
+      }
+      btn.addEventListener('click',function()
+      {
+          generator();
+          document.body.style.background =newColour;
+        text.innerText=newColour;
+          });
+    </script>
+  </body>
+</html>
